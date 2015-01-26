@@ -581,6 +581,12 @@ void Viewport::handleKeyPress(int keyCode, rdr::U32 keySym)
   }
 #endif
 
+  // Fix alt key for controlling vnc server running on mac osx
+  if (keySym == 0xffeb) {
+    keySym = 0xffe7;
+  }
+
+
   // Because of the way keyboards work, we cannot expect to have the same
   // symbol on release as when pressed. This breaks the VNC protocol however,
   // so we need to keep track of what keysym a key _code_ generated on press
